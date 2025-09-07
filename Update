@@ -1,3 +1,0 @@
-.github/
-└── workflows/
-    └── update.yml   ← Runs the update_fact.py script daily
