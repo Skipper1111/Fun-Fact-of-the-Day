@@ -1,0 +1,60 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fun Fact of the Day</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 20px;
+        }
+        .header-logos {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .header-logos img {
+            height: 100px;
+        }
+        .fact-container {
+            background-color: #fff;
+            padding: 40px;
+            margin: 30px auto;
+            max-width: 800px;
+            border-radius: 12px;
+            box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
+        }
+        .date {
+            margin: 20px 0;
+            font-size: 18px;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+    <div class="header-logos">
+        <img src="1.png" alt="Monteleone Gardens Logo">
+        <img src="4 Grills Banner 24x36.png" alt="4 Grills Logo">
+    </div>
+    <div class="date">September 07, 2025</div>
+    <div class="fact-container">
+        <h2>Fun Fact of the Day</h2>
+        <p id="fact">Loading...</p>
+    </div>
+    <script>
+        fetch("https://asli-fun-fact-api.vercel.app/")
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById("fact").textContent = data.data.fact;
+            })
+            .catch(error => {
+                document.getElementById("fact").textContent = "Could not load a fun fact today.";
+            });
+    </script>
+</body>
+</html>
